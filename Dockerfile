@@ -1,11 +1,13 @@
-FROM node:alpine
-WORKDIR /usr/app
+FROM node:10-slim
+
+WORKDIR /home/node/app
 
 COPY package*.json ./
+
 RUN npm install
 
 COPY . .
 
 EXPOSE 3333
 
-CMD ['npm', 'start']
+CMD npm start
